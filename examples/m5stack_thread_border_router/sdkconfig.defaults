@@ -126,3 +126,13 @@ CONFIG_PIN_TO_RCP_BOOT=-1
 CONFIG_PIN_TO_RCP_TX=18
 CONFIG_PIN_TO_RCP_RX=17
 # end of Board Configuration
+
+# CONFIG_ESP_BR_H2_TARGET is not set
+CONFIG_ESP_BR_C6_TARGET=y
+
+#
+# OpenThread RCP Update
+#
+# CONFIG_AUTO_UPDATE_RCP is not set
+# CONFIG_CREATE_OTA_IMAGE_WITH_RCP_FW is not set
+# end of OpenThread RCP Update
