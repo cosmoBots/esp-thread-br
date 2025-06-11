@@ -30,6 +30,11 @@
 #include "border_router_m5stack.h"
 #include "esp_br_web.h"
 
+// This is to allow the RCP to be powered
+// from the port pin
+#include "bsp/m5stack_core_s3.h"
+#define BSP_AW9523_ADDR     0x58
+
 #if CONFIG_EXTERNAL_COEX_ENABLE
 #include "esp_coexist.h"
 #endif
@@ -72,6 +77,10 @@ void app_main(void)
     // * task queue
     // * border router
     // * spi interface
+
+    /* AW9523 P0 is in push-pull mode */
+    bsp_i2c_init();
+
     esp_vfs_eventfd_config_t eventfd_config = {
         .max_fds = 4,
     };
