@@ -37,6 +37,7 @@ void br_m5stack_display_init(void)
 {
     bsp_display_lock(0);
     bsp_display_backlight_on();
+    bsp_display_brightness_set(30);
     lv_obj_set_style_bg_color(lv_scr_act(), lv_color_make(237, 238, 239), LV_STATE_DEFAULT);
     br_m5stack_create_base();
     bsp_display_unlock();
