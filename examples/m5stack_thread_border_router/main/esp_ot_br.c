@@ -80,6 +80,10 @@ void app_main(void)
 
     /* AW9523 P0 is in push-pull mode */
     bsp_i2c_init();
+    uint8_t data[2];
+    data[0] = 0x11;
+    data[1] = 0x10;
+    i2c_master_write_to_device(BSP_I2C_NUM, BSP_AW9523_ADDR, data, sizeof(data), 1000 / portTICK_PERIOD_MS);
 
     esp_vfs_eventfd_config_t eventfd_config = {
         .max_fds = 4,
