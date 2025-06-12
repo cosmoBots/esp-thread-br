@@ -1,0 +1,22 @@
+menu "OpenThread COAP"
+
+    config OT_COAP_SERVER
+        bool 'Enable the unit as COAP server'
+        default False
+        help
+            If enabled, the device will create a COAP server and will start it automatically.
+    
+    config OT_COAP_CLIENT
+        bool 'Enable the unit as COAP client'
+        default False
+        help
+            If enabled, the device will create a COAP client.
+
+    config OT_COAP_CLI
+        bool 'Enable the OT cli as an interface for dumping information'
+        default True
+        help
+            If enabled, the COAP component will use the OT CLI console to dump data
+
+
+endmenu

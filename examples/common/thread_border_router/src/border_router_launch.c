@@ -37,6 +37,8 @@
 #include "openthread/tasklet.h"
 #include "openthread/thread_ftd.h"
 
+#include <OtCoap.h>
+
 #if CONFIG_OPENTHREAD_CLI_WIFI
 #include "esp_ot_wifi_cmd.h"
 #endif
@@ -168,6 +170,18 @@ static void ot_task_worker(void *ctx)
 #endif
     // Initialize border routing features
     esp_openthread_lock_acquire(portMAX_DELAY);
+
+#ifdef CONFIG_OT_COAP_SERVER
+    ESP_LOGW(TAG,"++++++++++++++++++++++ INIT COAP SERVER ++++++++++++++++++");
+    OtCoapServer_init();
+#endif
+
+#ifdef CONFIG_OT_COAP_CLIENT
+    ESP_LOGW(TAG,"++++++++++++++++++++++ INIT COAP CLIENT ++++++++++++++++++");
+    OtCoapClient_init();
+#endif
+
+
     ESP_ERROR_CHECK(esp_netif_attach(openthread_netif, esp_openthread_netif_glue_init(&s_openthread_platform_config)));
 #if CONFIG_OPENTHREAD_LOG_LEVEL_DYNAMIC
     (void)otLoggingSetLevel(CONFIG_LOG_DEFAULT_LEVEL);

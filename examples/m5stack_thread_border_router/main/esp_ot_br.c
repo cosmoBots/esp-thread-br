@@ -124,3 +124,6 @@ void app_main(void)
     launch_openthread_border_router(&platform_config, &rcp_update_config);
     ESP_ERROR_CHECK(border_router_m5stack_init());
 }
+
+
+
